@@ -228,4 +228,25 @@ export class SettingController {
             return response.status(200).send(successResponse);
         }
     }
+
+    // Get healthcheck API
+    /**
+     * @api {get} /api/settings/healthcheck Get healthcheck API
+     * @apiGroup Settings
+     * @apiHeader {String} Authorization
+     * @apiSuccessExample {json} Success
+     * HTTP/1.1 200 OK
+     * {
+     *      "status": "1"
+     *      "message": "Successfully get settings",
+     *      "data":"{}"
+     * }
+     * @apiSampleRequest /api/settings/get-settings
+     * @apiErrorExample {json} getSettings error
+     * HTTP/1.1 500 Internal Server Error
+     */
+     @Get('/healthcheck')
+        public async healthcheck(@Res() response: any): Promise<any> {
+        return response.status(200).send({});
+     }
 }
