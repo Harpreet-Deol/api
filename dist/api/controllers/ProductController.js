@@ -63,7 +63,7 @@ let ProductController = class ProductController {
      */
     productList(limit, offset, keyword, sku, status, price, count, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const select = ['productId', 'sku', 'name', 'quantity', 'price', 'image', 'imagePath', 'todayDeals', 'isActive', 'color'];
+            const select = ['productId', 'sku', 'name', 'quantity', 'price', 'image', 'imagePath', 'todayDeals', 'isActive'];
             const relation = [];
             const WhereConditions = [
                 {
@@ -149,8 +149,8 @@ let ProductController = class ProductController {
      *      "status" : "",
      *      "outOfStockStatus" : "",
      *      "sortOrder" : "",
-     *      "condition" : "",
      *      "color" : "",
+     *      "condition" : "",
      *      "image":[
      *      {
      *      "image":""
@@ -171,7 +171,6 @@ let ProductController = class ProductController {
     addProduct(product, response) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const newProduct = new ProductModel_1.Product();
-            console.log(newProduct);
             newProduct.name = product.productName;
             newProduct.description = product.productDescription;
             newProduct.sku = product.sku;
@@ -187,7 +186,7 @@ let ProductController = class ProductController {
             newProduct.isActive = product.status;
             newProduct.todayDeals = 0;
             newProduct.sortOrder = product.sortOrder;
-            newProduct.color=product.color;
+            newProduct.color = product.color;
             const saveProduct = yield this.productService.create(newProduct);
             // save category
             if (product.categoryId) {
@@ -251,7 +250,7 @@ let ProductController = class ProductController {
      * @apiParam (Request body) {String} condition 1->new 2->used
      * @apiParam (Request body) {Number} status status
      * @apiParam (Request body) {Number} sortOrder sortOrder
-     * @apiParam (Request body) {string} color color
+     * @apiParam (Request body) {String} color color
      * @apiParamExample {json} Input
      * {
      *      "productName" : "",
@@ -694,6 +693,7 @@ let ProductController = class ProductController {
                 { header: 'Price', key: 'price', size: 16, width: 15 },
                 { header: 'SKU', key: 'sku', size: 16, width: 15 },
                 { header: 'UPC', key: 'upc', size: 16, width: 15 },
+                { header: 'Color', key: 'color', size: 16, width: 15 },
                 { header: 'Quantity', key: 'quantity', size: 16, width: 15 },
                 { header: 'Minimum Quantity', key: 'minimumQuantity', size: 16, width: 19 },
                 { header: 'Subtract Stock', key: 'subtractstock', size: 16, width: 15 },
@@ -711,11 +711,12 @@ let ProductController = class ProductController {
             worksheet.getCell('I1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('J1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             worksheet.getCell('K1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+            worksheet.getCell('K1').border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
             for (const id of productid) {
                 const dataId = yield this.productService.findOne(id);
                 const productDescription = dataId.description;
                 const dataDescription = productDescription.replace(/(&nbsp;|(<([^>]+)>))/ig, '');
-                rows.push([dataId.productId, dataId.name, dataDescription.trim(), dataId.price, dataId.sku, dataId.upc, dataId.quantity, dataId.minimumQuantity, dataId.subtractStock, dataId.manufacturerId, dataId.metaTagTitle]);
+                rows.push([dataId.productId, dataId.name, dataDescription.trim(), dataId.price, dataId.sku, dataId.upc, dataId.color, dataId.quantity, dataId.minimumQuantity, dataId.subtractStock, dataId.manufacturerId, dataId.metaTagTitle]);
             }
             // Add all rows data in sheet
             worksheet.addRows(rows);

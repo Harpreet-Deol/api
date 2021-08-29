@@ -49,9 +49,5 @@ tslib_1.__decorate([
     class_validator_1.IsNotEmpty(),
     tslib_1.__metadata("design:type", Number)
 ], AddProductRequest.prototype, "status", void 0);
-tslib_1.__decorate([
-    class_validator_1.IsNotEmpty(),
-    tslib_1.__metadata("design:type", String)
-], AddProductRequest.prototype, "color", void 0);
 exports.AddProductRequest = AddProductRequest;
 //# sourceMappingURL=CreateProductRequest.js.map

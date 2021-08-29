@@ -133,13 +133,13 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], Product.prototype, "condition", void 0);
 tslib_1.__decorate([
-    typeorm_1.Column({ name: 'color' }),
-    tslib_1.__metadata("design:type", String)
-], Product.prototype, "color", void 0);
-tslib_1.__decorate([
     typeorm_1.Column({ name: 'is_active' }),
     tslib_1.__metadata("design:type", Number)
 ], Product.prototype, "isActive", void 0);
+tslib_1.__decorate([
+    typeorm_1.Column({ name: 'color' }),
+    tslib_1.__metadata("design:type", String)
+], Product.prototype, "color", void 0);
 tslib_1.__decorate([
     typeorm_1.OneToMany(type => ProductToCategory_1.ProductToCategory, productToCategory => productToCategory.product),
     tslib_1.__metadata("design:type", Array)

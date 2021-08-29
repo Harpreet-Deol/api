@@ -98,7 +98,7 @@ let ProductRepository = class ProductRepository extends typeorm_1.Repository {
     customProductList(limit, offset, categoryId = [], manufacturerId, condition, keyword, priceFrom, priceTo, price) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             let sql = 'SELECT p.product_id as productId, p.price, p.sku, p.upc, p.color, p.quantity, p.stock_status_id as stockStatusId, p.manufacturer_id as manufacturerId, p.date_available as dateAvailable,' +
-                ' p.sort_order as sortOrder, p.name, p.description, p.amount, p.condition, p.meta_tag_title as metaTagTitle, p.meta_tag_description as metaTagDescription, p.meta_tag_keyword as metaTagKeyword , p.is_active as is_active' + ' ';
+                ' p.sort_order as sortOrder, p.name, p.description, p.amount, p.condition, p.meta_tag_title as metaTagTitle, p.meta_tag_description as metaTagDescription, p.meta_tag_keyword as metaTagKeyword , p.color as color, p.is_active as is_active' + ' ';
             if (categoryId) {
                 sql += 'FROM product_to_category p2c LEFT JOIN product p ON (p2c.product_id = p.product_id) WHERE  p2c.category_id = ' + categoryId + ' ';
                 sql += 'HAVING p.is_Active = 1' + ' ';

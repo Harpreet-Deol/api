@@ -186,12 +186,13 @@ class CreateProductTable1546528787878 {
                         isPrimary: false,
                         isNullable: true,
                         default: 'CURRENT_TIMESTAMP',
-                    },{
+                    }, {
                         name: 'color',
                         type: 'varchar',
+                        length: '64',
                         isPrimary: false,
                         isNullable: true,
-                },
+                    },
                 ],
             });
             const ifExsist = yield queryRunner.hasTable('product');

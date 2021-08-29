@@ -271,7 +271,7 @@ let CustomerController = class CustomerController {
                 if (val) {
                     const errResponse = {
                         status: 0,
-                        message: 'you are given a same password, please try different one',
+                        message: 'Your given a same password, please try different one',
                     };
                     return response.status(400).send(errResponse);
                 }

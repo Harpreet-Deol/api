@@ -148,7 +148,7 @@ let ProductController = class ProductController {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const select = ['productId', 'sku', 'upc', 'color', 'name', 'description', 'location', 'minimumQuantity',
                 'quantity', 'subtractStock', 'metaTagTitle', 'manufacturerId', 'stockStatusId', 'todayDeals',
-                'shipping', 'dateAvailable', 'sortOrder', 'price', 'isActive', 'color'];
+                'shipping', 'dateAvailable', 'sortOrder', 'color', 'price', 'isActive'];
             const whereConditions = [
                 {
                     name: 'deleteFlag',

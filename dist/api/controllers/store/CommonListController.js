@@ -212,8 +212,8 @@ let CommonListController = class CommonListController {
             console.log(manufacturerId);
             const select = ['product.productId', 'product.sku', 'product.name', 'product.quantity', 'product.description', 'product.price',
                 'product.isActive AS isActive', 'product.manufacturerId AS manufacturerId', 'product.location AS location', 'product.minimumQuantity AS minimumQuantity',
-                'product.subtractStock', 'product.stockStatusId', 'product.shipping', 'product.sortOrder', 'product.condition',
-                'product.dateAvailable', 'product.amount', 'product.metaTagTitle', 'product.metaTagDescription', 'product.metaTagKeyword', 'product.discount', 'product.color'];
+                'product.subtractStock', 'product.stockStatusId', 'product.shipping', 'product.sortOrder', 'product.color', 'product.condition',
+                'product.dateAvailable', 'product.amount', 'product.metaTagTitle', 'product.metaTagDescription', 'product.metaTagKeyword', 'product.discount'];
             const searchConditions = [
                 {
                     name: 'product.isActive',

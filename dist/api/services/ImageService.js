@@ -89,14 +89,9 @@ let ImageService = class ImageService {
             const directoryPath = path.join(process.cwd(), 'uploads' + '/' + imgPath + imgName);
             console.log(directoryPath);
             return new Promise((resolve, reject) => {
-                //const gm = require('gm').subClass({ imageMagick: true });
-                fs.readFile(directoryPath, function (err, data) {
-                    console.log('hello');
-                    if (err) reject(error);
-                    resolve(data);
-                  });
-                /*return gm(directoryPath)
-                    //.resize(widthString, heightString)
+                const gm = require('gm').subClass({ imageMagick: true });
+                return gm(directoryPath)
+                    .resize(widthString, heightString)
                     .toBuffer((error, buffer) => {
                     if (error) {
                         reject(error);
@@ -105,7 +100,7 @@ let ImageService = class ImageService {
                         console.log('Buffer' + Buffer.isBuffer(buffer));
                         resolve(buffer);
                     }
-                });*/
+                });
             });
         });
     }
