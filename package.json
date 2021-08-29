@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "description": "SpurtCommerce RESTFUL API",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node app.js",
     "test": "npm start test",
     "build": "npm start build",
     "presetup": "npm install",
