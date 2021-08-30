@@ -12,7 +12,7 @@ content.include = [
 const filePath = path.join(process.cwd(), 'tsconfig.build.json');
 jsonfile.writeFile(filePath, content, { spaces: 2 }, (err) => {
     if (err === null) {
-        process.exit(0); 
+        process.exit(0);
     } else {
         console.error('Failed to generate the tsconfig.build.json', err);
         process.exit(1);
